@@ -4,6 +4,7 @@ class LexicalAnalyzer:
     def __init__(self,reader):
         self.reader = reader
         self.text = self.reader.text
+        self.patterns = []
 
     def processText(self):
         text = re.sub(r'\s+', ' ', self.text)
@@ -18,26 +19,34 @@ class LexicalAnalyzer:
             
             if len(token) > 0:
 
-                #Identificar secuencia de numeros
-                if re.match(r'^$',token):
-                    patterns.append([token,'Secuencia de numeros'])
+                #idenfificador de variable
+                if re.match(r'^siuu$',token):
+                    patterns.append([token,'Identificador de variable'])
                 
-                #Identificar numeros seguidos de letras y numeros
-                elif re.match(r'^$',token):
-                    patterns.append([token,'Secuencia de numeros seguido de secuencia de letras'])
+                #Identificar de usuario
+                elif re.match(r'^[a-zA-Z][a-zA-Z0-9_]*$',token):
+                    patterns.append([token,'Identificador de usuario'])
+                
+                #Operador de asignacion
+                elif re.match(r'^=$',token):
+                    patterns.append([token,'Operador de asignacion'])
 
-                #Identificar vocales iguales
-                elif re.match(r'^$',token):
-                    patterns.append([token,'tres o mas vocales iguales en una palabra'])
+                #Operador de fin de Instruccion
+                elif re.match(r'^\$$',token):
+                    patterns.append([token,'Identificador de fin de instruccion'])
 
-                #Identificar caracteres especiales
-                elif re.match(r'^$',token):
-                    patterns.append([token,'caracteres especiales'])
+                #Numero flotante
+                elif re.match(r'^\d+\.\d+$',token):
+                    patterns.append([token,'Numero flotante'])
 
                 #Identificar palabras con 3 vocales
-                elif re.match(r'^$',token):
+                elif re.match(r'^\d+$',token):
                     patterns.append([token,'tres o mas vocales iguales en una palabra'])
                 else:
                     pass
+        
+        self.patterns = patterns
 
-        return patterns
+        return self
+
+        
