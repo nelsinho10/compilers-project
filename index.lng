@@ -1,4 +1,24 @@
-siuu a = 8 * 24 $
-siuu a = 'mu' $
-pantalla a $
-pantalla 1 $ 
+
+suma = 3.5 + 5 $
+resta = 8 - 10 $
+multi = 8 * 5 $
+div = 500 / 7 $
+
+A = 'se' $
+B = 'fue' $
+M = 'Messi' $
+C = A : B $
+D = C : M $ 
+compleja = suma + 2 / resta - 3 $
+
+
+
+repeticion = # 4 * 'casa' $
+
+pantalla suma $
+pantalla resta $
+pantalla multi $
+pantalla div $
+pantalla compleja $
+pantalla repeticion $
+pantalla D $

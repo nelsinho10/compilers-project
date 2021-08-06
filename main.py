@@ -4,18 +4,20 @@ from Core.Reader import Reader
 from tabulate import tabulate
 
 reader = Reader().read()
+name = Reader().read().fileName
 
 if reader.instruction == None:
-    print("----------------Ejecutando Traduccion------------------\n\n")
+    print("\n----------------Ejecutando Traduccion------------------\n")
     text = LexicalAnalyzer(reader).processText().identifyToken().text
     Syntactic(text).run()
 
 elif reader.instruction == "--analisis-lexico":
-    print("--------------Ejecutando Analisis Lexico--------------\n\n")
-    tokens = LexicalAnalyzer(reader).processText().identifyToken().patterns
-    print("Tokens encontrados:")
+    print("\n--------------Ejecutando Analisis Lexico--------------\n")
+    tokens = LexicalAnalyzer(reader,name).processText().identifyToken().patterns
+    headers = ['# Linea','Token','Descripcion']
     if len(tokens) > 0:
-        print(tabulate(tokens))
+        # print(tabulate(tokens))
+        print(tabulate(tokens, headers, tablefmt="grid"))
     else:
         print("No se encontraron ocurrencias")
 
