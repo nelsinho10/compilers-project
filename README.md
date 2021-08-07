@@ -30,7 +30,8 @@ Linux | Windows
 El programa se puede ejecutar cumpliendo tres funciones distintas en las cuales se comprende un **traductor**, un **analizador léxico** y la impresión de un **árbol sintáctico**. 
 
 El archivo que nuestro traductor ejecutara en esta documentación tiene como nombre index.lng y contiene las siguientes instrucciones:
-    <img src="./assets/index.png" width="500px">
+
+<img src="./assets/index.png" width="400px">
 
 - **Traductor** 
     - **Descripción**: Su funcionamiento es el de un traductor en el cual lee un archivo de texto y retorna la traducción de este código, esta traducción se hace en base a una gramática predefinida. 
