@@ -11,8 +11,6 @@ C = A : B $
 D = C : M $ 
 compleja = suma + 2 / resta - 3 $
 
-
-
 repeticion = # 4 * 'casa' $
 
 pantalla suma $
